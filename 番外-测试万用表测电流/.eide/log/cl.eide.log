@@ -1,0 +1,61 @@
+
+[2021/12/2 18:15:12 GMT+0800] : launched
+
+
+
+[2021/12/2 18:27:59 GMT+0800] : launched
+[Warning] : Only support GCC compiler !
+Error: Only support GCC compiler !
+	at t.ProjectExplorer.<anonymous> (c:\Users\xiaotian\.vscode\extensions\cl.eide-2.14.0\dist\extension.js:1:434019)
+	at Generator.next (<anonymous>)
+	at c:\Users\xiaotian\.vscode\extensions\cl.eide-2.14.0\dist\extension.js:1:393538
+	at new Promise (<anonymous>)
+	at o (c:\Users\xiaotian\.vscode\extensions\cl.eide-2.14.0\dist\extension.js:1:393283)
+	at t.ProjectExplorer.showDisassembly (c:\Users\xiaotian\.vscode\extensions\cl.eide-2.14.0\dist\extension.js:1:433812)
+	at c:\Users\xiaotian\.vscode\extensions\cl.eide-2.14.0\dist\extension.js:1:249110
+	at o._executeContributedCommand (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:94:111751)
+	at o.$executeContributedCommand (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:94:112293)
+	at n._doInvokeHandler (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:98:13802)
+	at n._invokeHandler (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:98:13486)
+	at n._receiveRequest (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:98:12148)
+	at n._receiveOneMessage (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:98:10826)
+	at c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:98:8922
+	at l.fire (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:66:1712)
+	at s.fire (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:74:15990)
+	at c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:113:30625
+	at l.fire (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:66:1712)
+	at s.fire (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:74:15990)
+	at f._receiveMessage (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:74:21260)
+	at c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:74:18138
+	at l.fire (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:66:1712)
+	at w.acceptChunk (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:74:13351)
+	at c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:74:12699
+	at Socket.m (c:\Users\xiaotian\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:113:13575)
+	at Socket.emit (events.js:315:20)
+	at Socket.EventEmitter.emit (domain.js:467:12)
+	at addChunk (internal/streams/readable.js:309:12)
+	at readableAddChunk (internal/streams/readable.js:284:9)
+	at Socket.Readable.push (internal/streams/readable.js:223:10)
+	at Pipe.onStreamRead (internal/stream_base_commons.js:188:23)
+
+[2021/12/2 21:34:24 GMT+0800] : launched
+
+
+
+[2021/12/3 13:43:57 GMT+0800] : launched
+
+[2021/12/3 23:24:25 GMT+0800] : launched
+
+[2021/12/3 23:24:58 GMT+0800] : launched
+
+[2021/12/3 23:54:12 GMT+0800] : launched
+
+
+
+[2021/12/4 8:32:17 GMT+0800] : launched
+
+[2021/12/4 8:48:8 GMT+0800] : launched
+
+[2021/12/4 9:39:20 GMT+0800] : launched
+
+

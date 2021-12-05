@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          12/04/2021  20:06:35  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          12/04/2021  21:32:10  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 0004C5H   0004D3H   00000FH   BYTE   UNIT     CODE           ?PR?LCD_DELAY?LCD1602
 0004D4H   0004DDH   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_WRITECOMMAND?LCD1602
 0004DEH   0004E7H   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWCHAR?LCD1602
-LX51 LINKER/LOCATER V4.66.97.0                                                        12/04/2021  20:06:35  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        12/04/2021  21:32:10  PAGE 2
 
 
 
@@ -135,7 +135,7 @@ _CONVERT_KEY_TO_ASCII/MAIN                ----- -----  ----- -----
 
 CALC_RESULT/MAIN                          ----- -----  ----- -----
   +--> _LCD_SHOWCHAR/LCD1602
-LX51 LINKER/LOCATER V4.66.97.0                                                        12/04/2021  20:06:35  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        12/04/2021  21:32:10  PAGE 3
 
 
   +--> _LCD_SHOWNUM/LCD1602
@@ -203,7 +203,7 @@ SYMBOL TABLE OF MODULE:  .\BUILD\TEMPLATE\6-2矩阵键盘做一个计算器 (LCD1602)
       010004DEH   PUBLIC    CODE     ---       _LCD_ShowChar
       010004B1H   PUBLIC    CODE     ---       LCD_Init
       01000461H   PUBLIC    CODE     ---       _LCD_SetCursor
-LX51 LINKER/LOCATER V4.66.97.0                                                        12/04/2021  20:06:35  PAGE 4
+LX51 LINKER/LOCATER V4.66.97.0                                                        12/04/2021  21:32:10  PAGE 4
 
 
       01000457H   PUBLIC    CODE     ---       _LCD_WriteData
@@ -271,7 +271,7 @@ SYMBOL TABLE OF MODULE:  .\BUILD\TEMPLATE\6-2矩阵键盘做一个计算器 (LCD1602)
       0100036AH   PUBLIC    CODE     ---       calc_result
       010002F2H   PUBLIC    CODE     ---       _convert_key_to_ascii
       01000003H   PUBLIC    CODE     ---       Get_key_num
-LX51 LINKER/LOCATER V4.66.97.0                                                        12/04/2021  20:06:35  PAGE 5
+LX51 LINKER/LOCATER V4.66.97.0                                                        12/04/2021  21:32:10  PAGE 5
 
 
       01000483H   PUBLIC    CODE     ---       _Delay_ms

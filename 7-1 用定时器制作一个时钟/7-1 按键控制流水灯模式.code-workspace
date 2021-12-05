@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "stdio.h": "c",
+            "STC8A8K64D4.H": "cpp",
+            "main.h": "c",
+            "lcd1602.h": "c",
+            "INTRINS.H": "cpp"
+        }
+    }
+}

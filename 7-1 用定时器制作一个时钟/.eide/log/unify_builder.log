@@ -868,3 +868,114 @@
 [2021-12-04 21:32:10]	[done]
 	build successfully !
 
+[2021-12-05 21:46:14]	[done]
+	build successfully !
+
+[2021-12-05 21:46:20]	[done]
+	build successfully !
+
+[2021-12-05 21:55:52]	link failed !, exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0130d] in <d55019557b4d40fcb0bf157239868dbe>:0 
+
+[2021-12-05 21:57:07]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\7-1 按键控制流水灯模式\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01190] in <d55019557b4d40fcb0bf157239868dbe>:0 
+
+[2021-12-05 21:57:14]	[done]
+	build successfully !
+
+[2021-12-05 21:57:20]	[done]
+	build successfully !
+
+[2021-12-05 22:22:37]	[done]
+	build successfully !
+
+[2021-12-05 22:22:43]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\7-1 按键控制流水灯模式\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01190] in <d55019557b4d40fcb0bf157239868dbe>:0 
+
+[2021-12-05 22:22:50]	[done]
+	build successfully !
+
+[2021-12-05 22:24:50]	[done]
+	build successfully !
+
+[2021-12-05 22:25:56]	[done]
+	build successfully !
+
+[2021-12-05 22:27:35]	[done]
+	build successfully !
+
+[2021-12-05 22:52:49]	[done]
+	build successfully !
+
+[2021-12-05 22:53:19]	[done]
+	build successfully !
+
+[2021-12-05 22:54:06]	[done]
+	build successfully !
+
+[2021-12-05 22:59:11]	[done]
+	build successfully !
+
+[2021-12-05 23:00:59]	[done]
+	build successfully !
+
+[2021-12-05 23:15:31]	[done]
+	build successfully !
+
+[2021-12-05 23:21:10]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\7-1 按键控制流水灯模式\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01190] in <d55019557b4d40fcb0bf157239868dbe>:0 
+
+[2021-12-05 23:21:30]	[done]
+	build successfully !
+
+[2021-12-05 23:25:51]	[done]
+	build successfully !
+
+[2021-12-05 23:26:37]	[done]
+	build successfully !
+
+[2021-12-05 23:34:33]	[done]
+	build successfully !
+
+[2021-12-05 23:41:09]	[done]
+	build successfully !
+
+[2021-12-05 23:41:37]	[done]
+	build successfully !
+
+[2021-12-05 23:42:50]	[done]
+	build successfully !
+
+[2021-12-05 23:43:17]	[done]
+	build successfully !
+
+[2021-12-05 23:45:38]	[done]
+	build successfully !
+
+[2021-12-05 23:46:05]	[done]
+	build successfully !
+
+[2021-12-05 23:46:23]	[done]
+	build successfully !
+
+[2021-12-05 23:49:03]	[done]
+	build successfully !
+
+[2021-12-05 23:59:26]	[done]
+	build successfully !
+
+[2021-12-06 00:02:25]	[done]
+	build successfully !
+
+[2021-12-06 00:04:31]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\7-1 按键控制流水灯模式\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01190] in <d55019557b4d40fcb0bf157239868dbe>:0 
+
+[2021-12-06 00:04:40]	[done]
+	build successfully !
+
+[2021-12-06 00:04:55]	[done]
+	build successfully !
+
+[2021-12-06 00:05:28]	[done]
+	build successfully !
+

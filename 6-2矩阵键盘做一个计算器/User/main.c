@@ -110,7 +110,7 @@ void main()
       calc_result();
       break;
     case '\b':
-      IAP_CONTR=1<<5; //根据数据手册，写ISP_CONTR的B5, SWRST寄存器 可以实现软件复位
+      IAP_CONTR |=1<<5; //根据数据手册，写ISP_CONTR的B5, SWRST寄存器 可以实现软件复位
       break;
     
     
@@ -125,6 +125,5 @@ void main()
     LCD_ShowNum(1,1,line1_num,5);
     LCD_ShowNum(2,1,line2_num,5);
     LCD_ShowChar(1,8,operator);
-      
   }
 }

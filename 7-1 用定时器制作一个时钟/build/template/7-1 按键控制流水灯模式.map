@@ -1,0 +1,310 @@
+LX51 LINKER/LOCATER V4.66.97.0                                                          12/06/2021  00:05:28  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\LX51.EXE .\BUILD\TEMPLATE\LCD1602.O, .\BUILD\TEMPLATE\MAIN.O TO .\build\template\7-1 按键控制流水灯模
+>> 式 PRINT (.\build\template\7-1 按键控制流水灯模式.map) REMOVEUNUSED
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\BUILD\TEMPLATE\LCD1602.O (LCD1602)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  .\BUILD\TEMPLATE\MAIN.O (MAIN)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?IMUL)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\build\template\7-1 按键控制流水灯模式 (LCD1602)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   0002F6H   CODE
+I:000000H   I:000000H   I:00007FH   000016H   DATA
+C:000000H   C:000000H   C:00FFFFH   000007H   CONST
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+
+
+MEMORY MAP OF MODULE:  .\build\template\7-1 按键控制流水灯模式 (LCD1602)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   000010H   000009H   BYTE   UNIT     DATA           _DATA_GROUP_
+000011H   000015H   000005H   BYTE   UNIT     DATA           ?DT?MAIN
+000016H   000016H   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   000009H   000007H   BYTE   UNIT     CONST          ?CO?MAIN
+00000AH   00000AH   000001H   ---    ---      **GAP**
+00000BH   00000DH   000003H   BYTE   OFFS..   CODE           ?MAIN?0000B
+00000EH   0000A1H   000094H   BYTE   UNIT     CODE           ?C?LIB_CODE
+0000A2H   00012DH   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00012EH   000184H   000057H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+000185H   0001C8H   000044H   BYTE   UNIT     CODE           ?PR?TIMER0_ROUNTINE?MAIN
+0001C9H   0001F9H   000031H   BYTE   UNIT     CODE           ?PR?_LCD_POW?LCD1602
+0001FAH   00021DH   000024H   BYTE   UNIT     CODE           ?PR?_LCD_SHOWNUM?LCD1602
+00021EH   000240H   000023H   BYTE   UNIT     CODE           ?PR?_LCD_SHOWSTRING?LCD1602
+000241H   000262H   000022H   BYTE   UNIT     CODE           ?PR?INIT_ALL_GPIO_TO_STD8051_STATUS?MAIN
+000263H   000280H   00001EH   BYTE   UNIT     CODE           ?PR?_LCD_WRITEDATA?LCD1602
+000281H   00029EH   00001EH   BYTE   UNIT     CODE           ?PR?_LCD_SETCURSOR?LCD1602
+00029FH   0002B8H   00001AH   BYTE   UNIT     CODE           ?PR?TIMER0_INIT?MAIN
+0002B9H   0002CCH   000014H   BYTE   UNIT     CODE           ?PR?LCD_INIT?LCD1602
+0002CDH   0002DBH   00000FH   BYTE   UNIT     CODE           ?PR?LCD_DELAY?LCD1602
+LX51 LINKER/LOCATER V4.66.97.0                                                        12/06/2021  00:05:28  PAGE 2
+
+
+0002DCH   0002E9H   00000EH   BYTE   UNIT     CODE           ?C_INITSEG
+0002EAH   0002F3H   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_WRITECOMMAND?LCD1602
+0002F4H   0002FDH   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWCHAR?LCD1602
+
+* * * * * * * * *   R E M O V E D     S E G M E N T S   * * * * * * * *
+   *DEL*:           00004AH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWSIGNEDNUM?LCD1602
+   *DEL*:           000007H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWSIGNEDNUM?LCD1602
+   *DEL*:           00004BH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWHEXNUM?LCD1602
+   *DEL*:           000005H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWHEXNUM?LCD1602
+   *DEL*:           00003DH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWBINNUM?LCD1602
+   *DEL*:           000005H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWBINNUM?LCD1602
+   *DEL*:           000019H   BYTE   UNIT     CODE           ?PR?_DELAY_MS?MAIN
+   *DEL*:           000032H   BYTE   UNIT     CODE           ?PR?GET_KEY_NUM?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\build\template\7-1 按键控制流水灯模式 (LCD1602)
+
+
+FUNCTION/MODULE                            BIT_GROUP   DATA_GROUP 
+--> CALLED FUNCTION/MODULE                START  STOP  START  STOP
+==================================================================
+TIMER0_ROUNTINE/MAIN                      ----- -----  ----- -----
+
+*** NEW ROOT ****************************
+
+?C_C51STARTUP                             ----- -----  ----- -----
+  +--> MAIN/MAIN
+  +--> ?C_INITSEG
+
+MAIN/MAIN                                 ----- -----  ----- -----
+  +--> INIT_ALL_GPIO_TO_STD8051_STATUS/MAIN
+  +--> TIMER0_INIT/MAIN
+  +--> LCD_INIT/LCD1602
+  +--> _LCD_SHOWSTRING/LCD1602
+  +--> _LCD_SHOWNUM/LCD1602
+  +--> _LCD_SHOWCHAR/LCD1602
+
+INIT_ALL_GPIO_TO_STD8051_STATUS/MAIN      ----- -----  ----- -----
+
+TIMER0_INIT/MAIN                          ----- -----  ----- -----
+
+LCD_INIT/LCD1602                          ----- -----  ----- -----
+  +--> _LCD_WRITECOMMAND/LCD1602
+
+_LCD_WRITECOMMAND/LCD1602                 ----- -----  ----- -----
+  +--> LCD_DELAY/LCD1602
+
+LCD_DELAY/LCD1602                         ----- -----  ----- -----
+
+_LCD_SHOWSTRING/LCD1602                   ----- -----  0008H 000AH
+  +--> _LCD_SETCURSOR/LCD1602
+  +--> _LCD_WRITEDATA/LCD1602
+
+_LCD_SETCURSOR/LCD1602                    ----- -----  ----- -----
+  +--> _LCD_WRITECOMMAND/LCD1602
+
+_LCD_WRITEDATA/LCD1602                    ----- -----  ----- -----
+  +--> LCD_DELAY/LCD1602
+
+_LCD_SHOWNUM/LCD1602                      ----- -----  0008H 000CH
+  +--> _LCD_SETCURSOR/LCD1602
+  +--> _LCD_POW/LCD1602
+  +--> _LCD_WRITEDATA/LCD1602
+
+LX51 LINKER/LOCATER V4.66.97.0                                                        12/06/2021  00:05:28  PAGE 3
+
+
+_LCD_POW/LCD1602                          ----- -----  000DH 0010H
+
+_LCD_SHOWCHAR/LCD1602                     ----- -----  ----- -----
+  +--> _LCD_SETCURSOR/LCD1602
+  +--> _LCD_WRITEDATA/LCD1602
+
+?C_INITSEG                                ----- -----  ----- -----
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\build\template\7-1 按键控制流水灯模式 (LCD1602)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+*DEL*:00000000H   DATA     BYTE      ?_LCD_ShowBinNum?BYTE
+*DEL*:00000000H   DATA     BYTE      ?_LCD_ShowHexNum?BYTE
+      00000008H   DATA     BYTE      ?_LCD_ShowNum?BYTE
+*DEL*:00000000H   DATA     BYTE      ?_LCD_ShowSignedNum?BYTE
+      0100000EH   CODE     ---       ?C?CLDOPTR
+      00000000H   NUMBER   ---       ?C?CODESEG
+      0100003BH   CODE     ---       ?C?IMUL
+      0100004DH   CODE     ---       ?C?UIDIV
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      010000E9H   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+*DEL*:00000004H   CODE     ---       _Delay_ms
+      010001D3H   CODE     ---       _LCD_Pow
+      01000281H   CODE     ---       _LCD_SetCursor
+*DEL*:00000000H   CODE     ---       _LCD_ShowBinNum
+      010002F4H   CODE     ---       _LCD_ShowChar
+*DEL*:00000000H   CODE     ---       _LCD_ShowHexNum
+      010001FAH   CODE     ---       _LCD_ShowNum
+*DEL*:00000000H   CODE     ---       _LCD_ShowSignedNum
+      0100021EH   CODE     ---       _LCD_ShowString
+      010002EAH   CODE     ---       _LCD_WriteCommand
+      01000277H   CODE     ---       _LCD_WriteData
+*DEL*:00000000H   CODE     ---       Get_key_num
+      00000014H   DATA     BYTE      HR
+      01000241H   CODE     ---       init_all_gpio_to_std8051_status
+      010002D3H   CODE     ---       LCD_Delay
+      010002B9H   CODE     ---       LCD_Init
+      0100012EH   CODE     ---       main
+      00000015H   DATA     BYTE      MN
+      00000013H   DATA     BYTE      SE
+      0100029FH   CODE     ---       Timer0_Init
+      01000185H   CODE     ---       Timer0_Rountine
+
+
+
+SYMBOL TABLE OF MODULE:  .\build\template\7-1 按键控制流水灯模式 (LCD1602)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       LCD1602
+      00000008H   PUBLIC    DATA     BYTE      ?_LCD_ShowNum?BYTE
+      010001FAH   PUBLIC    CODE     ---       _LCD_ShowNum
+      010001D3H   PUBLIC    CODE     ---       _LCD_Pow
+      0100021EH   PUBLIC    CODE     ---       _LCD_ShowString
+      010002F4H   PUBLIC    CODE     ---       _LCD_ShowChar
+      010002B9H   PUBLIC    CODE     ---       LCD_Init
+      01000281H   PUBLIC    CODE     ---       _LCD_SetCursor
+      01000277H   PUBLIC    CODE     ---       _LCD_WriteData
+      010002EAH   PUBLIC    CODE     ---       _LCD_WriteCommand
+      010002D3H   PUBLIC    CODE     ---       LCD_Delay
+LX51 LINKER/LOCATER V4.66.97.0                                                        12/06/2021  00:05:28  PAGE 4
+
+
+
+      010002CDH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002D3H   BLOCK     CODE     ---       LVL=0
+      010002D3H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000007H   SYMBOL    DATA     VOID      i
+      00000006H   SYMBOL    DATA     VOID      j
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002EAH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000263H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000277H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000281H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002B9H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002F4H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100021EH   BLOCK     CODE     ---       LVL=0
+      01000224H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000005H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001C9H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001D3H   BLOCK     CODE     ---       LVL=0
+      010001DBH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000003H   SYMBOL    DATA     VOID      i
+      00000006H   SYMBOL    DATA     VOID      Result
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001FAH   BLOCK     CODE     ---       LVL=0
+      010001FEH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000002H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+      00000002H   SYMBOL    DATA     VOID      i
+      00000002H   SYMBOL    DATA     VOID      i
+      00000006H   SYMBOL    DATA     VOID      SingleNumber
+      00000002H   SYMBOL    DATA     VOID      i
+
+      ---         MODULE    ---      ---       MAIN
+      00000015H   PUBLIC    DATA     BYTE      MN
+      00000014H   PUBLIC    DATA     BYTE      HR
+      00000013H   PUBLIC    DATA     BYTE      SE
+      0100012EH   PUBLIC    CODE     ---       main
+      01000185H   PUBLIC    CODE     ---       Timer0_Rountine
+      0100029FH   PUBLIC    CODE     ---       Timer0_Init
+      01000241H   PUBLIC    CODE     ---       init_all_gpio_to_std8051_status
+
+      01000241H   BLOCK     CODE     ---       LVL=0
+LX51 LINKER/LOCATER V4.66.97.0                                                        12/06/2021  00:05:28  PAGE 5
+
+
+      ---         BLOCKEND  ---      ---       LVL=0
+      00000005H   SYMBOL    DATA     VOID      i
+      00000004H   SYMBOL    DATA     VOID      j
+
+      0100029FH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+      00000003H   SYMBOL    DATA     VOID      key_num
+
+      01000185H   BLOCK     CODE     ---       LVL=0
+      01000189H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000011H   SYMBOL    DATA     VOID      T0Count
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100012EH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+
+      ---         MODULE    ---      ---       ?C?CLDOPTR
+      0100000EH   PUBLIC    CODE     ---       ?C?CLDOPTR
+
+      ---         MODULE    ---      ---       ?C?IMUL
+      0100003BH   PUBLIC    CODE     ---       ?C?IMUL
+
+      ---         MODULE    ---      ---       ?C?UIDIV
+      0100004DH   PUBLIC    CODE     ---       ?C?UIDIV
+
+      ---         MODULE    ---      ---       ?C_INIT
+      010000E9H   PUBLIC    CODE     ---       ?C_START
+
+Program Size: data=23.0 xdata=0 const=7 code=758
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

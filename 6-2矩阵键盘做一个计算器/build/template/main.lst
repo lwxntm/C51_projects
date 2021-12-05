@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   51   2        }
   52   1      }
   53          
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 2   
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 2   
 
   54          void calc_result(){
   55   1        switch (operator)
@@ -123,10 +123,10 @@ line level    source
  110   3            calc_result();
  111   3            break;
  112   3          case '\b':
- 113   3            IAP_CONTR=1<<5; //根据数据手册，写ISP_CONTR的B5, SWRST寄存器 可以实现软件复位
+ 113   3            IAP_CONTR |=1<<5; //根据数据手册，写ISP_CONTR的B5, SWRST寄存器 可以实现软件复位
  114   3            break;
  115   3          
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 3   
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 3   
 
  116   3          
  117   3          default:
@@ -141,10 +141,9 @@ line level    source
  125   2          LCD_ShowNum(1,1,line1_num,5);
  126   2          LCD_ShowNum(2,1,line2_num,5);
  127   2          LCD_ShowChar(1,8,operator);
- 128   2            
- 129   2        }
- 130   1      }
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 4   
+ 128   2        }
+ 129   1      }
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 4   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -208,7 +207,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 000B 4C                ORL     A,R4
 000C 600A              JZ      ?C0009
                                            ; SOURCE LINE # 32
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 5   
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 5   
 
                                            ; SOURCE LINE # 35
 ;---- Variable 'i' assigned to Register 'R5' ----
@@ -272,7 +271,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 003B 120000      R     LCALL   L?0107
 003E 7B10              MOV     R3,#010H
 0040         ?C0019:
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 6   
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 6   
 
                                            ; SOURCE LINE # 20
 0040 7580FD            MOV     P0,#0FDH
@@ -336,7 +335,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00A8         ?C0040:
                                            ; SOURCE LINE # 29
 00A8 20870B            JB      P07,?C0043
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 7   
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 7   
 
 00AB 120000      R     LCALL   L?0107
 00AE         ?C0044:
@@ -400,7 +399,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0010 25F0              ADD     A,B
 0012 C583              XCH     A,DPH
 0014 73                JMP     @A+DPTR
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 8   
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 8   
 
 0015         ?C0101:
 0015 020000      R     LJMP    ?C0060
@@ -464,7 +463,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0063         ?C0071:
 0063 7F33              MOV     R7,#033H
 0065 22                RET     
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 9   
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 9   
 
                                            ; SOURCE LINE # 43
 0066         ?C0072:
@@ -528,7 +527,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0023 9500        R     SUBB    A,line2_num+01H
 0025 F500        R     MOV     result+01H,A
 0027 E500        R     MOV     A,line1_num
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 10  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 10  
 
 0029 9500        R     SUBB    A,line2_num
 002B F500        R     MOV     result,A
@@ -592,7 +591,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0014 7D01              MOV     R5,#01H
 0016 7F01              MOV     R7,#01H
 0018 120000      E     LCALL   _LCD_ShowNum
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 11  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 11  
 
                                            ; SOURCE LINE # 83
 001B 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
@@ -656,7 +655,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 005D 75002F      R     MOV     operator,#02FH
                                            ; SOURCE LINE # 107
 0060         ?C0105:
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 12  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 12  
 
 0060 750001      R     MOV     num_line,#01H
                                            ; SOURCE LINE # 108
@@ -670,7 +669,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 112
 006A         ?C0094:
                                            ; SOURCE LINE # 113
-006A 75C720            MOV     IAP_CONTR,#020H
+006A 43C720            ORL     IAP_CONTR,#020H
                                            ; SOURCE LINE # 114
 006D 8044              SJMP    ?C0088
                                            ; SOURCE LINE # 117
@@ -720,7 +719,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00B0 3A                ADDC    A,R2
 00B1 F500        R     MOV     line2_num,A
                                            ; SOURCE LINE # 122
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 13  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 13  
 
                                            ; SOURCE LINE # 123
 00B3         ?C0088:
@@ -743,11 +742,11 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00D1 7D08              MOV     R5,#08H
 00D3 7F01              MOV     R7,#01H
 00D5 120000      E     LCALL   _LCD_ShowChar
-                                           ; SOURCE LINE # 129
+                                           ; SOURCE LINE # 128
 00D8 020000      R     LJMP    ?C0085
              ; FUNCTION main (END)
 
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 14  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 14  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -810,7 +809,7 @@ ADC_RES. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BDH  1
 IP2H . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B6H  1
 IP3H . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EEH  1
 CCAP0L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EAH  1
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 15  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 15  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -873,7 +872,7 @@ SCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
 P13. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0093H  1
 P04. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0084H  1
 P50. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 16  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 16  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -936,7 +935,7 @@ IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
 IE2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AFH  1
 B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
 AUXR . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008EH  1
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 17  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 17  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -999,7 +998,7 @@ SPSTAT . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
 IPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B7H  1
 _convert_key_to_ascii. . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
   key. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
-C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 20:06:35 PAGE 18  
+C51 COMPILER V9.60.0.0   MAIN                                                              12/04/2021 21:32:10 PAGE 18  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====

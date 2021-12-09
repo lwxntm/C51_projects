@@ -76,24 +76,20 @@ Q7S引脚，串行输出引脚，本文不使用，下一篇再解释它的作�
 #include <stdio.h>
 
 //此处是595芯片的三个数据输入端口，可以替换为自己单片机的对应GPIO
-#define P_DS P35
-#define P_STCP P13
-#define P_SHCP P15
+sbit P_DS =P0^1;
+sbit P_STCP =P0^2;
+sbit P_SHCP =P0^0;
 
 //使SHCP制造一次上升沿，然后再复位为低电平
 void SHCP_rising_edge(void)
 {
   P_SHCP = 1;
-  _nop_();
-  _nop_();
   P_SHCP = 0;
 }
 //使STCP制造一次上升沿，然后再复位为低电平
 void STCP_rising_edge(void)
 {
   P_STCP = 1;
-  _nop_();
-  _nop_();
   P_STCP = 0;
 }
 
@@ -125,7 +121,7 @@ void main()
 {
   uint8_t num_arr_index;
 
-  init_all_gpio_to_std8051_status();
+ // init_all_gpio_to_std8051_status();
   P_STCP = 0;
   P_SHCP = 0;
   P_DS = 0;
@@ -135,7 +131,6 @@ void main()
     for (num_arr_index = 0; num_arr_index < 10; num_arr_index++)
     {
       Input_to_74HC595(num_arr[num_arr_index]);
-      Delay_ms(300);
     }
   }
 }

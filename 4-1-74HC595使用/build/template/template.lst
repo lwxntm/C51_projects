@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 1   
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TEMPLATE
@@ -62,7 +62,7 @@ line level    source
   47          注意这里说的不是输出引脚Q0-Q7，而是指内部的8位移位寄存器里每一个“小房间�
              -��，芯片手册上并没有给这些小房间编号，这里为了说明方便进行了编号）
   48          
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 2   
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 2   
 
   49          
   50          STCP是芯片内部另外一个8位锁存寄存器的时钟引脚。
@@ -103,72 +103,67 @@ line level    source
   76          #include <stdio.h>
   77          
   78          //此处是595芯片的三个数据输入端口，可以替换为自己单片机的对应GPIO
-  79          #define P_DS P35
-  80          #define P_STCP P13
-  81          #define P_SHCP P15
+  79          sbit P_DS =P0^1;
+  80          sbit P_STCP =P0^2;
+  81          sbit P_SHCP =P0^0;
   82          
   83          //使SHCP制造一次上升沿，然后再复位为低电平
   84          void SHCP_rising_edge(void)
   85          {
   86   1        P_SHCP = 1;
-  87   1        _nop_();
-  88   1        _nop_();
-  89   1        P_SHCP = 0;
-  90   1      }
-  91          //使STCP制造一次上升沿，然后再复位为低电平
-  92          void STCP_rising_edge(void)
-  93          {
-  94   1        P_STCP = 1;
-  95   1        _nop_();
-  96   1        _nop_();
-  97   1        P_STCP = 0;
-  98   1      }
-  99          
- 100          void Input_to_74HC595(uint8_t c)
- 101          {
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 3   
+  87   1        P_SHCP = 0;
+  88   1      }
+  89          //使STCP制造一次上升沿，然后再复位为低电平
+  90          void STCP_rising_edge(void)
+  91          {
+  92   1        P_STCP = 1;
+  93   1        P_STCP = 0;
+  94   1      }
+  95          
+  96          void Input_to_74HC595(uint8_t c)
+  97          {
+  98   1        int i;
+  99   1        for (i = 0; i < 8; i++)
+ 100   1        {
+ 101   2          P_DS = ((c & (1 << i)) == 0) ? 0 : 1;
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 3   
 
- 102   1        int i;
- 103   1        for (i = 0; i < 8; i++)
- 104   1        {
- 105   2          P_DS = ((c & (1 << i)) == 0) ? 0 : 1;
- 106   2          SHCP_rising_edge();
- 107   2        }
- 108   1        STCP_rising_edge();
- 109   1      }
- 110          
- 111          uint8_t num_arr[] = {
- 112              0xfc, //11111100
- 113              0x60, //01100000
- 114              0xdb, //11011011
- 115              0xf2, //11110110
- 116              0x66, //01100110
- 117              0xb6, //10110110
- 118              0xbe, //10111110
- 119              0xe0, //11100000
- 120              0xfe, //11111110
- 121              0xf6, //11110110
- 122          };
- 123          
- 124          void main()
- 125          {
- 126   1        uint8_t num_arr_index;
- 127   1      
- 128   1        init_all_gpio_to_std8051_status();
- 129   1        P_STCP = 0;
- 130   1        P_SHCP = 0;
- 131   1        P_DS = 0;
- 132   1      
- 133   1        while (1)
- 134   1        {
- 135   2          for (num_arr_index = 0; num_arr_index < 10; num_arr_index++)
- 136   2          {
- 137   3            Input_to_74HC595(num_arr[num_arr_index]);
- 138   3            Delay_ms(300);
- 139   3          }
- 140   2        }
- 141   1      }
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 4   
+ 102   2          SHCP_rising_edge();
+ 103   2        }
+ 104   1        STCP_rising_edge();
+ 105   1      }
+ 106          
+ 107          uint8_t num_arr[] = {
+ 108              0xfc, //11111100
+ 109              0x60, //01100000
+ 110              0xdb, //11011011
+ 111              0xf2, //11110110
+ 112              0x66, //01100110
+ 113              0xb6, //10110110
+ 114              0xbe, //10111110
+ 115              0xe0, //11100000
+ 116              0xfe, //11111110
+ 117              0xf6, //11110110
+ 118          };
+ 119          
+ 120          void main()
+ 121          {
+ 122   1        uint8_t num_arr_index;
+ 123   1      
+ 124   1       // init_all_gpio_to_std8051_status();
+ 125   1        P_STCP = 0;
+ 126   1        P_SHCP = 0;
+ 127   1        P_DS = 0;
+ 128   1      
+ 129   1        while (1)
+ 130   1        {
+ 131   2          for (num_arr_index = 0; num_arr_index < 10; num_arr_index++)
+ 132   2          {
+ 133   3            Input_to_74HC595(num_arr[num_arr_index]);
+ 134   3          }
+ 135   2        }
+ 136   1      }
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 4   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -232,7 +227,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 ;---- Variable 'i' assigned to Register 'R5' ----
 000A 7D3C              MOV     R5,#03CH
                                            ; SOURCE LINE # 36
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 5   
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 5   
 
 ;---- Variable 'j' assigned to Register 'R4' ----
 000C 7C93              MOV     R4,#093H
@@ -253,51 +248,41 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 84
                                            ; SOURCE LINE # 85
                                            ; SOURCE LINE # 86
-0000 D295              SETB    P15
+0000 D280              SETB    P_SHCP
                                            ; SOURCE LINE # 87
-0002 00                NOP     
+0002 C280              CLR     P_SHCP
                                            ; SOURCE LINE # 88
-0003 00                NOP     
-                                           ; SOURCE LINE # 89
-0004 C295              CLR     P15
-                                           ; SOURCE LINE # 90
-0006 22                RET     
+0004 22                RET     
              ; FUNCTION SHCP_rising_edge (END)
 
              ; FUNCTION STCP_rising_edge (BEGIN)
+                                           ; SOURCE LINE # 90
+                                           ; SOURCE LINE # 91
                                            ; SOURCE LINE # 92
+0000 D282              SETB    P_STCP
                                            ; SOURCE LINE # 93
+0002 C282              CLR     P_STCP
                                            ; SOURCE LINE # 94
-0000 D293              SETB    P13
-                                           ; SOURCE LINE # 95
-0002 00                NOP     
-                                           ; SOURCE LINE # 96
-0003 00                NOP     
-                                           ; SOURCE LINE # 97
-0004 C293              CLR     P13
-                                           ; SOURCE LINE # 98
-0006 22                RET     
+0004 22                RET     
              ; FUNCTION STCP_rising_edge (END)
 
              ; FUNCTION _Input_to_74HC595 (BEGIN)
-                                           ; SOURCE LINE # 100
+                                           ; SOURCE LINE # 96
 ;---- Variable 'c' assigned to Register 'R1' ----
 0000 A907              MOV     R1,AR7
-                                           ; SOURCE LINE # 101
-                                           ; SOURCE LINE # 103
+                                           ; SOURCE LINE # 97
+                                           ; SOURCE LINE # 99
 ;---- Variable 'i' assigned to Register 'R4/R5' ----
 0002 E4                CLR     A
 0003 FD                MOV     R5,A
 0004 FC                MOV     R4,A
 0005         ?C0012:
-                                           ; SOURCE LINE # 104
-                                           ; SOURCE LINE # 105
+                                           ; SOURCE LINE # 100
+                                           ; SOURCE LINE # 101
 0005 AF05              MOV     R7,AR5
 0007 7E00              MOV     R6,#00H
 0009 7401              MOV     A,#01H
 000B A807              MOV     R0,AR7
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 6   
-
 000D 08                INC     R0
 000E 8005              SJMP    ?C0026
 0010         ?C0025:
@@ -306,6 +291,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0012 CE                XCH     A,R6
 0013 33                RLC     A
 0014 CE                XCH     A,R6
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 6   
+
 0015         ?C0026:
 0015 D8F9              DJNZ    R0,?C0025
 0017 FF                MOV     R7,A
@@ -318,10 +305,10 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 001F C3                CLR     C
 0020         ?C0015:
 0020         ?C0016:
-0020 92B5              MOV     P35,C
-                                           ; SOURCE LINE # 106
+0020 9281              MOV     P_DS,C
+                                           ; SOURCE LINE # 102
 0022 120000      R     LCALL   SHCP_rising_edge
-                                           ; SOURCE LINE # 107
+                                           ; SOURCE LINE # 103
 0025 0D                INC     R5
 0026 BD0001            CJNE    R5,#00H,?C0027
 0029 0C                INC     R4
@@ -331,55 +318,49 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 002D 4C                ORL     A,R4
 002E 70D5              JNZ     ?C0012
 0030         ?C0013:
-                                           ; SOURCE LINE # 108
+                                           ; SOURCE LINE # 104
 0030 020000      R     LJMP    STCP_rising_edge
              ; FUNCTION _Input_to_74HC595 (END)
 
              ; FUNCTION main (BEGIN)
-                                           ; SOURCE LINE # 124
+                                           ; SOURCE LINE # 120
+                                           ; SOURCE LINE # 121
                                            ; SOURCE LINE # 125
-                                           ; SOURCE LINE # 128
-0000 120000      R     LCALL   init_all_gpio_to_std8051_status
+0000 C282              CLR     P_STCP
+                                           ; SOURCE LINE # 126
+0002 C280              CLR     P_SHCP
+                                           ; SOURCE LINE # 127
+0004 C281              CLR     P_DS
+0006         ?C0018:
                                            ; SOURCE LINE # 129
-0003 C293              CLR     P13
                                            ; SOURCE LINE # 130
-0005 C295              CLR     P15
                                            ; SOURCE LINE # 131
-0007 C2B5              CLR     P35
-0009         ?C0018:
-                                           ; SOURCE LINE # 133
-                                           ; SOURCE LINE # 134
-                                           ; SOURCE LINE # 135
 ;---- Variable 'num_arr_index' assigned to Register 'R2' ----
-0009 E4                CLR     A
-000A FA                MOV     R2,A
-000B         ?C0020:
-000B EA                MOV     A,R2
-000C C3                CLR     C
-000D 940A              SUBB    A,#0AH
-000F 7480              MOV     A,#080H
-0011 9480              SUBB    A,#080H
-0013 50F4              JNC     ?C0018
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 7   
+0006 E4                CLR     A
+0007 FA                MOV     R2,A
+0008         ?C0020:
+0008 EA                MOV     A,R2
+0009 C3                CLR     C
+000A 940A              SUBB    A,#0AH
+000C 7480              MOV     A,#080H
+000E 9480              SUBB    A,#080H
+0010 50F4              JNC     ?C0018
+                                           ; SOURCE LINE # 132
+                                           ; SOURCE LINE # 133
+0012 7400        R     MOV     A,#LOW num_arr
+0014 2A                ADD     A,R2
+0015 F8                MOV     R0,A
+0016 E6                MOV     A,@R0
+0017 FF                MOV     R7,A
+0018 120000      R     LCALL   _Input_to_74HC595
+                                           ; SOURCE LINE # 134
+001B 0A                INC     R2
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 7   
 
-                                           ; SOURCE LINE # 136
-                                           ; SOURCE LINE # 137
-0015 7400        R     MOV     A,#LOW num_arr
-0017 2A                ADD     A,R2
-0018 F8                MOV     R0,A
-0019 E6                MOV     A,@R0
-001A FF                MOV     R7,A
-001B 120000      R     LCALL   _Input_to_74HC595
-                                           ; SOURCE LINE # 138
-001E 7F2C              MOV     R7,#02CH
-0020 7E01              MOV     R6,#01H
-0022 120000      R     LCALL   _Delay_ms
-                                           ; SOURCE LINE # 139
-0025 0A                INC     R2
-0026 80E3              SJMP    ?C0020
+001C 80EA              SJMP    ?C0020
              ; FUNCTION main (END)
 
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 8   
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 8   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -442,7 +423,7 @@ CCAP1L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EBH  1
 CCAPM0 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DAH  1
 CCAP2L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ECH  1
 CCAPM1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DBH  1
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 9   
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 9   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -505,7 +486,7 @@ P23. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A3H  1
 P14. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0094H  1
 TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
 TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 10  
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 10  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -564,16 +545,17 @@ B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
 AUXR . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008EH  1
 IAP_CONTR. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C7H  1
 PWMCFG . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F6H  1
+P_DS . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0081H  1
 ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
 ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
 ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
-TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 11  
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 11  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
 
 
+TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
 RSTCFG . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FFH  1
 IP2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B5H  1
 TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
@@ -619,6 +601,7 @@ PCA_PWM1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F3H  1
 PCA_PWM2 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F4H  1
 DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
 T4T3M. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D1H  1
+P_SHCP . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0080H  1
 ADC_RESL . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BEH  1
 DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
 SPSTAT . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
@@ -629,15 +612,16 @@ S3BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ADH  1
 REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
 S4BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0085H  1
 S2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009AH  1
-DPS. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E3H  1
-S3CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ACH  1
-C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/04/2021 12:45:06 PAGE 12  
+C51 COMPILER V9.60.0.0   TEMPLATE                                                          12/07/2021 18:46:25 PAGE 12  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
 
 
+DPS. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E3H  1
+S3CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ACH  1
 S4CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0084H  1
+P_STCP . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0082H  1
 AUXINTIF . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EFH  1
 SADEN. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B9H  1
 SADDR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A9H  1
@@ -654,7 +638,7 @@ P0M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0094H  1
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    160    ----
+   CODE SIZE        =    146    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

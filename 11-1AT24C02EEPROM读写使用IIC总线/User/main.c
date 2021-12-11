@@ -16,11 +16,11 @@ void main()
   LCD_Init();
 
   DelayXms_AT44983(50);
-  P3M1 |= 1 << 4;
-  P3M1 |= 1 << 5;
+  P1M1 |= 1 << 4;
+  P1M1 |= 1 << 5;
 
-  P3M0 |= 1 << 4;
-  P3M0 |= 1 << 5;
+  P1M0 |= 1 << 4;
+  P1M0 |= 1 << 5;
 
   LCD_ShowString(1, 1, "1++ 2-- 3LOAD");
 
@@ -31,7 +31,7 @@ void main()
     {
       // Data++;
       // AT24C02_Write_Byte(1, Data);
-      AT24C02_Write_Multi_Bytes(0, 10, "HelloWorld");
+      AT24C02_Write_Multi_Bytes(0, 10, "fuckYYYY");
     }
     else if (key == 2)
     {
@@ -41,7 +41,7 @@ void main()
     }
     else if (key == 3)
     {
-      for (str_ptr = 0; str_ptr < 10; str_ptr++)
+      for (str_ptr = 0; str_ptr < 8; str_ptr++)
       {
         LCD_ShowChar(2, str_ptr + 1, AT24C02_Read_byte(str_ptr));
       }

@@ -7,7 +7,29 @@
     "settings": {
         "files.associations": {
             "main.h": "c",
-            "STC8A8K64D4.H": "cpp"
-        }
+            "STC8A8K64D4.H": "cpp",
+            ".eideignore": "ignore"
+        },
+        "C_Cpp.default.intelliSenseMode": "gcc-arm",
+        "files.autoGuessEncoding": true,
+        "C_Cpp.default.cppStandard": "c++14",
+        "C_Cpp.default.cStandard": "c99",
+        "[yaml]": {
+            "editor.insertSpaces": true,
+            "editor.tabSize": 4,
+            "editor.autoIndent": "advanced"
+        },
+        "C_Cpp.errorSquiggles": "Disabled"
+    },
+    "extensions": {
+        "recommendations": [
+            "cl.eide",
+            "keroc.hex-fmt",
+            "xiaoyongdong.srecord",
+            "hars.cppsnippets",
+            "zixuanwang.linkerscript",
+            "redhat.vscode-yaml",
+            "cl.stm8-debug"
+        ]
     }
 }

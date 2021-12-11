@@ -16,11 +16,11 @@ uint8_t AT24C02_Read_byte(uint8_t ByteAddress)
     SW_I2C_StartBit();
     SW_I2C_SendSlaveAddress_and_RW_then_getAckBit(at24c02_address, 0);
     SW_I2C_SendByte_then_getAckBit(ByteAddress);
-  //  SW_I2C_StopBit();  // 居然注释掉也没有问题
-  //  Delay160us();    // 居然注释掉也没有问题
+    SW_I2C_StopBit();
+    Delay160us();
     SW_I2C_StartBit();
     SW_I2C_SendSlaveAddress_and_RW_then_getAckBit(at24c02_address, 1);
-   // Delay2ms();
+    Delay2ms();
     //开始读取：此时sda的控制权在从机
     Dat = SW_I2C_ReceiveByte();
     SW_I2C_StopBit();

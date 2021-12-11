@@ -1,132 +1,87 @@
-[2021-12-08 23:36:15]	[done]
+[2021-12-11 11:21:30]	[done]
 	build successfully !
 
-[2021-12-08 23:43:46]	[done]
+[2021-12-11 12:43:30]	[done]
 	build successfully !
 
-[2021-12-08 23:43:49]	[done]
-	build successfully !
-
-[2021-12-09 18:55:51]	[done]
-	build successfully !
-
-[2021-12-09 18:58:56]	[done]
-	build successfully !
-
-[2021-12-09 18:59:05]	[done]
-	build successfully !
-
-[2021-12-09 19:01:30]	[done]
-	build successfully !
-
-[2021-12-09 19:06:54]	[done]
-	build successfully !
-
-[2021-12-09 19:23:32]	[done]
-	build successfully !
-
-[2021-12-09 19:24:51]	[done]
-	build successfully !
-
-[2021-12-09 19:25:35]	[done]
-	build successfully !
-
-[2021-12-09 19:25:49]	[done]
-	build successfully !
-
-[2021-12-09 19:26:08]	[done]
-	build successfully !
-
-[2021-12-09 19:30:28]	[done]
-	build successfully !
-
-[2021-12-09 19:32:27]	[done]
-	build successfully !
-
-[2021-12-09 19:34:06]	[done]
-	build successfully !
-
-[2021-12-09 19:36:40]	[done]
-	build successfully !
-
-[2021-12-09 19:49:22]	[done]
-	build successfully !
-
-[2021-12-09 19:49:36]	[done]
-	build successfully !
-
-[2021-12-09 19:50:23]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\10-2无源蜂鸣器播放音乐\User\main.c", exit code: 2
+[2021-12-11 12:52:04]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\11-1AT24C02EEPROM读写使用IIC总线\User\main.c", exit code: 2
   at unify_builder.Program.Main (System.String[] args) [0x01412] in <ebd0cb5fe6cf45b8b5052a372703e543>:0 
 
-[2021-12-09 19:50:35]	[done]
-	build successfully !
-
-[2021-12-09 19:51:03]	[done]
-	build successfully !
-
-[2021-12-09 19:51:29]	[done]
-	build successfully !
-
-[2021-12-09 20:30:01]	[done]
-	build successfully !
-
-[2021-12-09 20:32:09]	[done]
-	build successfully !
-
-[2021-12-09 20:32:18]	[done]
-	build successfully !
-
-[2021-12-09 20:32:28]	[done]
-	build successfully !
-
-[2021-12-09 20:33:44]	[done]
-	build successfully !
-
-[2021-12-09 20:50:46]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\10-2无源蜂鸣器播放音乐\User\main.c", exit code: 2
+[2021-12-11 12:52:37]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\11-1AT24C02EEPROM读写使用IIC总线\User\main.c", exit code: 2
   at unify_builder.Program.Main (System.String[] args) [0x01412] in <ebd0cb5fe6cf45b8b5052a372703e543>:0 
 
-[2021-12-09 20:51:03]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\10-2无源蜂鸣器播放音乐\User\main.c", exit code: 2
+[2021-12-11 12:52:55]	[done]
+	build successfully !
+
+[2021-12-11 12:55:00]	[done]
+	build successfully !
+
+[2021-12-11 12:57:12]	[done]
+	build successfully !
+
+[2021-12-11 12:58:33]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\11-1AT24C02EEPROM读写使用IIC总线\User\main.c", exit code: 2
   at unify_builder.Program.Main (System.String[] args) [0x01412] in <ebd0cb5fe6cf45b8b5052a372703e543>:0 
 
-[2021-12-09 20:51:12]	[done]
+[2021-12-11 12:58:39]	[done]
 	build successfully !
 
-[2021-12-09 20:53:56]	[done]
+[2021-12-11 13:05:46]	[done]
 	build successfully !
 
-[2021-12-09 23:07:40]	[done]
+[2021-12-11 13:06:40]	[done]
 	build successfully !
 
-[2021-12-09 23:09:21]	[done]
+[2021-12-11 13:06:55]	[done]
 	build successfully !
 
-[2021-12-09 23:11:22]	[done]
+[2021-12-11 14:55:41]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\11-1AT24C02EEPROM读写使用IIC总线\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01412] in <ebd0cb5fe6cf45b8b5052a372703e543>:0 
+
+[2021-12-11 14:56:09]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\11-1AT24C02EEPROM读写使用IIC总线\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01412] in <ebd0cb5fe6cf45b8b5052a372703e543>:0 
+
+[2021-12-11 14:56:30]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\11-1AT24C02EEPROM读写使用IIC总线\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01412] in <ebd0cb5fe6cf45b8b5052a372703e543>:0 
+
+[2021-12-11 14:56:52]	[done]
 	build successfully !
 
-[2021-12-09 23:17:59]	[done]
+[2021-12-11 14:57:53]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\11-1AT24C02EEPROM读写使用IIC总线\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01412] in <ebd0cb5fe6cf45b8b5052a372703e543>:0 
+
+[2021-12-11 14:58:09]	[done]
 	build successfully !
 
-[2021-12-09 23:18:07]	[done]
+[2021-12-11 14:58:33]	[done]
 	build successfully !
 
-[2021-12-09 23:18:21]	[done]
+[2021-12-11 15:01:26]	[done]
 	build successfully !
 
-[2021-12-09 23:18:45]	[done]
+[2021-12-11 15:01:31]	[done]
 	build successfully !
 
-[2021-12-09 23:20:26]	[done]
+[2021-12-11 15:40:19]	[done]
 	build successfully !
 
-[2021-12-09 23:20:30]	[done]
+[2021-12-11 15:41:38]	[done]
 	build successfully !
 
-[2021-12-09 23:28:18]	[done]
+[2021-12-11 15:50:52]	[done]
 	build successfully !
 
-[2021-12-09 23:32:51]	[done]
+[2021-12-11 15:52:33]	[done]
 	build successfully !
 
-[2021-12-09 23:41:35]	[done]
+[2021-12-11 15:55:58]	[done]
+	build successfully !
+
+[2021-12-11 16:00:45]	[done]
+	build successfully !
+
+[2021-12-11 16:01:13]	[done]
+	build successfully !
+
+[2021-12-11 16:01:54]	[done]
 	build successfully !
 

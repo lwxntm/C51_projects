@@ -11,9 +11,9 @@
 uint8_t Get_onboard_key_num(void)
 {
    uint8_t key_num = 0;
-    if (P60 == 0){ Delay_ms(20);while (P60 == 0) ;Delay_ms(20);key_num = 1; }
-    if (P61 == 0){ Delay_ms(20);while (P61 == 0) ;Delay_ms(20);key_num = 2; }
-    if (P62 == 0){ Delay_ms(20);while (P62 == 0) ;Delay_ms(20);key_num = 3; }
+    if (P60 == 0){ DelayXms_AT44983(20);while (P60 == 0) ;DelayXms_AT44983(20);key_num = 1; }
+    if (P61 == 0){ DelayXms_AT44983(20);while (P61 == 0) ;DelayXms_AT44983(20);key_num = 2; }
+    if (P62 == 0){ DelayXms_AT44983(20);while (P62 == 0) ;DelayXms_AT44983(20);key_num = 3; }
    
    return key_num;
 }

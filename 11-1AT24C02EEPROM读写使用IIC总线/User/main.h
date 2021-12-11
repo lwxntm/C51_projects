@@ -31,20 +31,21 @@ void init_all_gpio_to_std8051_status(void)
     P7M1 = 0x00;
 }
 
-void Delay_ms(uint16_t xms) //@44.242MHz
+void DelayXms_AT44983(uint16_t xms)		//@44.983MHz
 {
-    unsigned char i, j;
+	unsigned char i, j;
     while (xms--)
     {
-        _nop_();
-        i = 58;
-        j = 114;
-        do
-        {
-            while (--j)
-                ;
-        } while (--i);
+       _nop_();
+	_nop_();
+	i = 59;
+	j = 104;
+	do
+	{
+		while (--j);
+	} while (--i);
     }
 }
+
 
 #endif

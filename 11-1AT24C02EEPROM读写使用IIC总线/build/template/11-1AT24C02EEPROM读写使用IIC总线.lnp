@@ -1,0 +1,3 @@
+
+.\build\template\User\LCD1602.o,.\build\template\User\main.o TO .\build\template\11-1AT24C02EEPROM读写使用IIC总线
+PRINT(.\build\template\11-1AT24C02EEPROM读写使用IIC总线.map) REMOVEUNUSED

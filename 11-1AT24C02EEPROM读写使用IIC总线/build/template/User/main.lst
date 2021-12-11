@@ -1,0 +1,1108 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\build\template\User\main.o
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.exe .\USER\MAIN.C PRINT(.\build\template\User\main.lst) OMF2 TABS(4) CODE NO
+                    -COND SYMBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(C:\Keil_v5\C51\INC\STC;C:\Keil_v5\C51\INC) DEFINE(__UVISION_VERSI
+                    -ON=526) OBJECT(.\build\template\User\main.o)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "LCD1602.h"
+   3          #include "IndivBtn.h"
+   4          #include "AT24C02.h"
+   5          
+   6          uint8_t Data = 0;
+   7          
+   8          void main()
+   9          {
+  10   1        uint8_t str_ptr = 0;
+  11   1      
+  12   1        uint16_t i = 0;
+  13   1        uint8_t key = 0;
+  14   1        DelayXms_AT44983(50); //等待内部电路稳定
+  15   1        init_all_gpio_to_std8051_status();
+  16   1        LCD_Init();
+  17   1      
+  18   1        DelayXms_AT44983(50);
+  19   1        P3M1 |= 1 << 4;
+  20   1        P3M1 |= 1 << 5;
+  21   1      
+  22   1        P3M0 |= 1 << 4;
+  23   1        P3M0 |= 1 << 5;
+  24   1      
+  25   1        LCD_ShowString(1, 1, "1++ 2-- 3LOAD");
+  26   1      
+  27   1        while (1)
+  28   1        {
+  29   2          key = Get_onboard_key_num();
+  30   2          if (key == 1)
+  31   2          {
+  32   3            // Data++;
+  33   3            // AT24C02_Write_Byte(1, Data);
+  34   3            AT24C02_Write_Multi_Bytes(0, 10, "HelloWorld");
+  35   3          }
+  36   2          else if (key == 2)
+  37   2          {
+  38   3            Data--;
+  39   3            AT24C02_Write_Byte(1, Data);
+  40   3            /* code */
+  41   3          }
+  42   2          else if (key == 3)
+  43   2          {
+  44   3            for (str_ptr = 0; str_ptr < 10; str_ptr++)
+  45   3            {
+  46   4              LCD_ShowChar(2, str_ptr + 1, AT24C02_Read_byte(str_ptr));
+  47   4            }
+  48   3          }
+  49   2        }
+  50   1      }
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION init_all_gpio_to_std8051_status (BEGIN)
+                                           ; SOURCE LINE # 14
+                                           ; SOURCE LINE # 15
+                                           ; SOURCE LINE # 16
+0000 E4                CLR     A
+0001 F594              MOV     P0M0,A
+                                           ; SOURCE LINE # 17
+0003 F593              MOV     P0M1,A
+                                           ; SOURCE LINE # 18
+0005 F592              MOV     P1M0,A
+                                           ; SOURCE LINE # 19
+0007 F591              MOV     P1M1,A
+                                           ; SOURCE LINE # 20
+0009 F596              MOV     P2M0,A
+                                           ; SOURCE LINE # 21
+000B F595              MOV     P2M1,A
+                                           ; SOURCE LINE # 22
+000D F5B2              MOV     P3M0,A
+                                           ; SOURCE LINE # 23
+000F F5B1              MOV     P3M1,A
+                                           ; SOURCE LINE # 24
+0011 F5B4              MOV     P4M0,A
+                                           ; SOURCE LINE # 25
+0013 F5B3              MOV     P4M1,A
+                                           ; SOURCE LINE # 26
+0015 F5CA              MOV     P5M0,A
+                                           ; SOURCE LINE # 27
+0017 F5C9              MOV     P5M1,A
+                                           ; SOURCE LINE # 28
+0019 F5CC              MOV     P6M0,A
+                                           ; SOURCE LINE # 29
+001B F5CB              MOV     P6M1,A
+                                           ; SOURCE LINE # 30
+001D F5E2              MOV     P7M0,A
+                                           ; SOURCE LINE # 31
+001F F5E1              MOV     P7M1,A
+                                           ; SOURCE LINE # 32
+0021 22                RET     
+             ; FUNCTION init_all_gpio_to_std8051_status (END)
+
+             ; FUNCTION L?0085 (BEGIN)
+0000         L?0086:
+0000 7F14              MOV     R7,#014H
+0002 7E00              MOV     R6,#00H
+             ; FUNCTION _DelayXms_AT44983 (BEGIN)
+                                           ; SOURCE LINE # 34
+;---- Variable 'xms' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 35
+0004         ?C0002:
+                                           ; SOURCE LINE # 37
+0004 EF                MOV     A,R7
+0005 1F                DEC     R7
+0006 AC06              MOV     R4,AR6
+0008 7001              JNZ     ?C0076
+000A 1E                DEC     R6
+000B         ?C0076:
+000B 4C                ORL     A,R4
+000C 600C              JZ      ?C0009
+                                           ; SOURCE LINE # 38
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 3   
+
+                                           ; SOURCE LINE # 39
+000E 00                NOP     
+                                           ; SOURCE LINE # 40
+000F 00                NOP     
+                                           ; SOURCE LINE # 41
+;---- Variable 'i' assigned to Register 'R5' ----
+0010 7D3B              MOV     R5,#03BH
+                                           ; SOURCE LINE # 42
+;---- Variable 'j' assigned to Register 'R4' ----
+0012 7C68              MOV     R4,#068H
+                                           ; SOURCE LINE # 44
+0014         ?C0007:
+                                           ; SOURCE LINE # 45
+0014 DCFE              DJNZ    R4,?C0007
+                                           ; SOURCE LINE # 46
+0016 DDFC              DJNZ    R5,?C0007
+                                           ; SOURCE LINE # 47
+0018 80EA              SJMP    ?C0002
+                                           ; SOURCE LINE # 48
+001A         ?C0009:
+001A 22                RET     
+             ; FUNCTION _DelayXms_AT44983 (END)
+
+             ; FUNCTION Get_onboard_key_num (BEGIN)
+                                           ; SOURCE LINE # 11
+                                           ; SOURCE LINE # 12
+                                           ; SOURCE LINE # 13
+;---- Variable 'key_num' assigned to Register 'R3' ----
+0000 E4                CLR     A
+0001 FB                MOV     R3,A
+                                           ; SOURCE LINE # 14
+0002 20E80E            JB      P60,?C0010
+0005 7F14              MOV     R7,#014H
+0007 FE                MOV     R6,A
+0008 120000      R     LCALL   _DelayXms_AT44983
+000B         ?C0011:
+000B 30E8FD            JNB     P60,?C0011
+000E 120000      R     LCALL   L?0085
+0011 7B01              MOV     R3,#01H
+0013         ?C0010:
+                                           ; SOURCE LINE # 15
+0013 20E90B            JB      P61,?C0013
+0016 120000      R     LCALL   L?0085
+0019         ?C0014:
+0019 30E9FD            JNB     P61,?C0014
+001C 120000      R     LCALL   L?0086
+001F 7B02              MOV     R3,#02H
+0021         ?C0013:
+                                           ; SOURCE LINE # 16
+0021 20EA0B            JB      P62,?C0016
+0024 120000      R     LCALL   L?0086
+0027         ?C0017:
+0027 30EAFD            JNB     P62,?C0017
+002A 120000      R     LCALL   L?0086
+002D 7B03              MOV     R3,#03H
+002F         ?C0016:
+                                           ; SOURCE LINE # 18
+002F AF03              MOV     R7,AR3
+                                           ; SOURCE LINE # 19
+0031 22                RET     
+             ; FUNCTION Get_onboard_key_num (END)
+
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 4   
+
+             ; FUNCTION L?0083 (BEGIN)
+0000 FF                MOV     R7,A
+0001 E9                MOV     A,R1
+0002 F582              MOV     DPL,A
+0004 EF                MOV     A,R7
+0005 5582              ANL     A,DPL
+0007 24FF              ADD     A,#0FFH
+0009 92B5              MOV     SW_I2C_SDA,C
+000B         L?0084:
+000B 120000      R     LCALL   Delay6us
+000E D2B4              SETB    SW_I2C_SCL
+             ; FUNCTION Delay6us (BEGIN)
+                                           ; SOURCE LINE # 11
+                                           ; SOURCE LINE # 12
+                                           ; SOURCE LINE # 14
+;---- Variable 'i' assigned to Register 'R7' ----
+0010 7F58              MOV     R7,#058H
+0012         ?C0020:
+                                           ; SOURCE LINE # 15
+0012 DFFE              DJNZ    R7,?C0020
+                                           ; SOURCE LINE # 17
+0014 22                RET     
+             ; FUNCTION Delay6us (END)
+
+             ; FUNCTION L?0089 (BEGIN)
+0000 D2B5              SETB    SW_I2C_SDA
+0002 120000      R     LCALL   Delay12us
+0005 D2B4              SETB    SW_I2C_SCL
+             ; FUNCTION Delay18us (BEGIN)
+                                           ; SOURCE LINE # 19
+                                           ; SOURCE LINE # 20
+                                           ; SOURCE LINE # 23
+0007 00                NOP     
+                                           ; SOURCE LINE # 24
+;---- Variable 'i' assigned to Register 'R7' ----
+0008 7F02              MOV     R7,#02H
+                                           ; SOURCE LINE # 25
+;---- Variable 'j' assigned to Register 'R6' ----
+000A 7E0A              MOV     R6,#0AH
+                                           ; SOURCE LINE # 27
+000C         ?C0026:
+                                           ; SOURCE LINE # 28
+000C DEFE              DJNZ    R6,?C0026
+                                           ; SOURCE LINE # 30
+000E DFFC              DJNZ    R7,?C0026
+                                           ; SOURCE LINE # 31
+0010 22                RET     
+             ; FUNCTION Delay18us (END)
+
+             ; FUNCTION Delay12us (BEGIN)
+                                           ; SOURCE LINE # 33
+                                           ; SOURCE LINE # 34
+                                           ; SOURCE LINE # 37
+;---- Variable 'i' assigned to Register 'R7' ----
+0000 7FB2              MOV     R7,#0B2H
+0002         ?C0029:
+                                           ; SOURCE LINE # 38
+0002 DFFE              DJNZ    R7,?C0029
+                                           ; SOURCE LINE # 40
+0004 22                RET     
+             ; FUNCTION Delay12us (END)
+
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 5   
+
+             ; FUNCTION Delay160us (BEGIN)
+                                           ; SOURCE LINE # 42
+                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 46
+;---- Variable 'i' assigned to Register 'R7' ----
+0000 7F0A              MOV     R7,#0AH
+                                           ; SOURCE LINE # 47
+;---- Variable 'j' assigned to Register 'R6' ----
+0002 7E56              MOV     R6,#056H
+                                           ; SOURCE LINE # 49
+0004         ?C0035:
+                                           ; SOURCE LINE # 50
+0004 DEFE              DJNZ    R6,?C0035
+                                           ; SOURCE LINE # 52
+0006 DFFC              DJNZ    R7,?C0035
+                                           ; SOURCE LINE # 53
+0008 22                RET     
+             ; FUNCTION Delay160us (END)
+
+             ; FUNCTION L?0090 (BEGIN)
+0000 120000      R     LCALL   SW_I2C_StopBit
+0003 120000      R     LCALL   Delay2ms
+             ; FUNCTION Delay2ms (BEGIN)
+                                           ; SOURCE LINE # 55
+                                           ; SOURCE LINE # 56
+                                           ; SOURCE LINE # 59
+0006 00                NOP     
+                                           ; SOURCE LINE # 60
+;---- Variable 'i' assigned to Register 'R7' ----
+0007 7F75              MOV     R7,#075H
+                                           ; SOURCE LINE # 61
+;---- Variable 'j' assigned to Register 'R6' ----
+0009 7ED4              MOV     R6,#0D4H
+                                           ; SOURCE LINE # 63
+000B         ?C0041:
+                                           ; SOURCE LINE # 64
+000B DEFE              DJNZ    R6,?C0041
+                                           ; SOURCE LINE # 66
+000D DFFC              DJNZ    R7,?C0041
+                                           ; SOURCE LINE # 67
+000F 22                RET     
+             ; FUNCTION Delay2ms (END)
+
+             ; FUNCTION SW_I2C_StartBit (BEGIN)
+                                           ; SOURCE LINE # 74
+                                           ; SOURCE LINE # 75
+                                           ; SOURCE LINE # 76
+0000 D2B5              SETB    SW_I2C_SDA
+                                           ; SOURCE LINE # 77
+                                           ; SOURCE LINE # 78
+                                           ; SOURCE LINE # 79
+0002 120000      R     LCALL   L?0084
+                                           ; SOURCE LINE # 80
+0005 C2B5              CLR     SW_I2C_SDA
+                                           ; SOURCE LINE # 81
+0007 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 82
+000A C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 83
+000C 020000      R     LJMP    Delay6us
+             ; FUNCTION SW_I2C_StartBit (END)
+
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 6   
+
+             ; FUNCTION SW_I2C_StopBit (BEGIN)
+                                           ; SOURCE LINE # 90
+                                           ; SOURCE LINE # 91
+                                           ; SOURCE LINE # 92
+0000 C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 93
+0002 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 94
+0005 C2B5              CLR     SW_I2C_SDA
+                                           ; SOURCE LINE # 95
+                                           ; SOURCE LINE # 96
+                                           ; SOURCE LINE # 97
+0007 120000      R     LCALL   L?0084
+                                           ; SOURCE LINE # 98
+000A D2B5              SETB    SW_I2C_SDA
+                                           ; SOURCE LINE # 99
+000C 020000      R     LJMP    Delay6us
+             ; FUNCTION SW_I2C_StopBit (END)
+
+             ; FUNCTION L?0087 (BEGIN)
+0000 AC07              MOV     R4,AR7
+0002         L?0088:
+0002 120000      R     LCALL   SW_I2C_StartBit
+0005 E4                CLR     A
+0006 FD                MOV     R5,A
+0007 AF00        R     MOV     R7,at24c02_address
+             ; FUNCTION _SW_I2C_SendSlaveAddress_and_RW_then_getAckBit (BEGIN)
+                                           ; SOURCE LINE # 108
+;---- Variable 'RW' assigned to Register 'R5' ----
+;---- Variable 'SlaveAddress' assigned to Register 'R1' ----
+0009 A907              MOV     R1,AR7
+                                           ; SOURCE LINE # 109
+                                           ; SOURCE LINE # 112
+;---- Variable 'i' assigned to Register 'R3' ----
+000B E4                CLR     A
+000C FB                MOV     R3,A
+000D         ?C0046:
+000D EB                MOV     A,R3
+000E C3                CLR     C
+000F 9407              SUBB    A,#07H
+0011 7480              MOV     A,#080H
+0013 9480              SUBB    A,#080H
+0015 501C              JNC     ?C0047
+                                           ; SOURCE LINE # 113
+                                           ; SOURCE LINE # 114
+0017 7E00              MOV     R6,#00H
+0019 7440              MOV     A,#040H
+001B A803              MOV     R0,AR3
+001D 08                INC     R0
+001E 8006              SJMP    ?C0078
+0020         ?C0077:
+0020 CE                XCH     A,R6
+0021 A2E7              MOV     C,ACC.7
+0023 13                RRC     A
+0024 CE                XCH     A,R6
+0025 13                RRC     A
+0026         ?C0078:
+0026 D8F8              DJNZ    R0,?C0077
+                                           ; SOURCE LINE # 115
+                                           ; SOURCE LINE # 116
+                                           ; SOURCE LINE # 117
+0028 120000      R     LCALL   L?0083
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 7   
+
+                                           ; SOURCE LINE # 118
+002B C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 119
+002D 120000      R     LCALL   Delay18us
+                                           ; SOURCE LINE # 120
+0030 0B                INC     R3
+0031 80DA              SJMP    ?C0046
+0033         ?C0047:
+                                           ; SOURCE LINE # 121
+0033 ED                MOV     A,R5
+0034 24FF              ADD     A,#0FFH
+0036 92B5              MOV     SW_I2C_SDA,C
+                                           ; SOURCE LINE # 122
+0038 D2B4              SETB    SW_I2C_SCL
+                                           ; SOURCE LINE # 123
+003A 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 124
+003D C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 125
+003F 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 126
+                                           ; SOURCE LINE # 127
+                                           ; SOURCE LINE # 128
+                                           ; SOURCE LINE # 129
+0042 120000      R     LCALL   L?0089
+                                           ; SOURCE LINE # 130
+0045 A2B5              MOV     C,SW_I2C_SDA
+0047 E4                CLR     A
+0048 33                RLC     A
+;---- Variable 'AckBit' assigned to Register 'R6' ----
+0049 FE                MOV     R6,A
+                                           ; SOURCE LINE # 131
+004A C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 132
+004C 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 134
+004F FF                MOV     R7,A
+                                           ; SOURCE LINE # 135
+0050 22                RET     
+             ; FUNCTION _SW_I2C_SendSlaveAddress_and_RW_then_getAckBit (END)
+
+             ; FUNCTION _SW_I2C_SendByte_then_getAckBit (BEGIN)
+                                           ; SOURCE LINE # 142
+;---- Variable 'Dat' assigned to Register 'R1' ----
+0000 A907              MOV     R1,AR7
+                                           ; SOURCE LINE # 143
+                                           ; SOURCE LINE # 144
+;---- Variable 'AckBit' assigned to Register 'R5' ----
+0002 E4                CLR     A
+0003 FD                MOV     R5,A
+                                           ; SOURCE LINE # 146
+;---- Variable 'i' assigned to Register 'R3' ----
+0004 FB                MOV     R3,A
+0005         ?C0050:
+0005 EB                MOV     A,R3
+0006 C3                CLR     C
+0007 9408              SUBB    A,#08H
+0009 7480              MOV     A,#080H
+000B 9480              SUBB    A,#080H
+000D 501C              JNC     ?C0051
+                                           ; SOURCE LINE # 147
+                                           ; SOURCE LINE # 148
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 8   
+
+000F 7E00              MOV     R6,#00H
+0011 7480              MOV     A,#080H
+0013 A803              MOV     R0,AR3
+0015 08                INC     R0
+0016 8006              SJMP    ?C0080
+0018         ?C0079:
+0018 CE                XCH     A,R6
+0019 A2E7              MOV     C,ACC.7
+001B 13                RRC     A
+001C CE                XCH     A,R6
+001D 13                RRC     A
+001E         ?C0080:
+001E D8F8              DJNZ    R0,?C0079
+                                           ; SOURCE LINE # 149
+                                           ; SOURCE LINE # 150
+                                           ; SOURCE LINE # 151
+0020 120000      R     LCALL   L?0083
+                                           ; SOURCE LINE # 152
+0023 C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 153
+0025 120000      R     LCALL   Delay18us
+                                           ; SOURCE LINE # 154
+0028 0B                INC     R3
+0029 80DA              SJMP    ?C0050
+002B         ?C0051:
+                                           ; SOURCE LINE # 155
+                                           ; SOURCE LINE # 156
+                                           ; SOURCE LINE # 157
+                                           ; SOURCE LINE # 158
+002B 120000      R     LCALL   L?0089
+                                           ; SOURCE LINE # 159
+002E A2B5              MOV     C,SW_I2C_SDA
+0030 E4                CLR     A
+0031 33                RLC     A
+0032 FD                MOV     R5,A
+                                           ; SOURCE LINE # 160
+0033 C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 161
+0035 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 163
+0038 FF                MOV     R7,A
+                                           ; SOURCE LINE # 164
+0039 22                RET     
+             ; FUNCTION _SW_I2C_SendByte_then_getAckBit (END)
+
+             ; FUNCTION SW_I2C_ReceiveByte (BEGIN)
+                                           ; SOURCE LINE # 171
+                                           ; SOURCE LINE # 172
+                                           ; SOURCE LINE # 173
+;---- Variable 'i' assigned to Register 'R6' ----
+0000 E4                CLR     A
+0001 FE                MOV     R6,A
+                                           ; SOURCE LINE # 174
+;---- Variable 'Dat' assigned to Register 'R5' ----
+0002 FD                MOV     R5,A
+                                           ; SOURCE LINE # 176
+0003 D2B5              SETB    SW_I2C_SDA
+                                           ; SOURCE LINE # 177
+0005 120000      R     LCALL   Delay2ms
+                                           ; SOURCE LINE # 178
+0008 FE                MOV     R6,A
+0009         ?C0054:
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 9   
+
+0009 EE                MOV     A,R6
+000A C3                CLR     C
+000B 9408              SUBB    A,#08H
+000D 7480              MOV     A,#080H
+000F 9480              SUBB    A,#080H
+0011 501D              JNC     ?C0055
+                                           ; SOURCE LINE # 179
+                                           ; SOURCE LINE # 180
+0013 D2B4              SETB    SW_I2C_SCL
+                                           ; SOURCE LINE # 181
+0015 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 182
+0018 30B50D            JNB     SW_I2C_SDA,?C0057
+                                           ; SOURCE LINE # 183
+001B A806              MOV     R0,AR6
+001D 7480              MOV     A,#080H
+001F 08                INC     R0
+0020 8002              SJMP    ?C0082
+0022         ?C0081:
+0022 C3                CLR     C
+0023 13                RRC     A
+0024         ?C0082:
+0024 D8FC              DJNZ    R0,?C0081
+0026 4205              ORL     AR5,A
+0028         ?C0057:
+                                           ; SOURCE LINE # 184
+0028 C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 185
+002A 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 186
+002D 0E                INC     R6
+002E 80D9              SJMP    ?C0054
+0030         ?C0055:
+                                           ; SOURCE LINE # 188
+0030 D2B5              SETB    SW_I2C_SDA
+                                           ; SOURCE LINE # 189
+                                           ; SOURCE LINE # 190
+                                           ; SOURCE LINE # 191
+0032 120000      R     LCALL   L?0084
+                                           ; SOURCE LINE # 192
+0035 C2B4              CLR     SW_I2C_SCL
+                                           ; SOURCE LINE # 193
+0037 120000      R     LCALL   Delay6us
+                                           ; SOURCE LINE # 194
+003A AF05              MOV     R7,AR5
+                                           ; SOURCE LINE # 195
+003C 22                RET     
+             ; FUNCTION SW_I2C_ReceiveByte (END)
+
+             ; FUNCTION _AT24C02_Read_byte (BEGIN)
+                                           ; SOURCE LINE # 13
+;---- Variable 'ByteAddress' assigned to Register 'R4' ----
+                                           ; SOURCE LINE # 14
+                                           ; SOURCE LINE # 16
+                                           ; SOURCE LINE # 17
+0000 120000      R     LCALL   L?0087
+                                           ; SOURCE LINE # 18
+0003 AF04              MOV     R7,AR4
+0005 120000      R     LCALL   _SW_I2C_SendByte_then_getAckBit
+                                           ; SOURCE LINE # 19
+0008 120000      R     LCALL   SW_I2C_StopBit
+                                           ; SOURCE LINE # 20
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 10  
+
+000B 120000      R     LCALL   Delay160us
+                                           ; SOURCE LINE # 21
+000E 120000      R     LCALL   SW_I2C_StartBit
+                                           ; SOURCE LINE # 22
+0011 7D01              MOV     R5,#01H
+0013 AF00        R     MOV     R7,at24c02_address
+0015 120000      R     LCALL   _SW_I2C_SendSlaveAddress_and_RW_then_getAckBit
+                                           ; SOURCE LINE # 23
+0018 120000      R     LCALL   Delay2ms
+                                           ; SOURCE LINE # 25
+001B 120000      R     LCALL   SW_I2C_ReceiveByte
+;---- Variable 'Dat' assigned to Register 'R6' ----
+001E AE07              MOV     R6,AR7
+                                           ; SOURCE LINE # 26
+0020 120000      R     LCALL   SW_I2C_StopBit
+                                           ; SOURCE LINE # 27
+0023 AF06              MOV     R7,AR6
+                                           ; SOURCE LINE # 28
+0025 22                RET     
+             ; FUNCTION _AT24C02_Read_byte (END)
+
+             ; FUNCTION _AT24C02_Write_Byte (BEGIN)
+                                           ; SOURCE LINE # 37
+;---- Variable 'Dat' assigned to Register 'R4' ----
+0000 AC05              MOV     R4,AR5
+;---- Variable 'ByteAddress' assigned to Register 'R2' ----
+0002 AA07              MOV     R2,AR7
+                                           ; SOURCE LINE # 38
+                                           ; SOURCE LINE # 39
+                                           ; SOURCE LINE # 40
+0004 120000      R     LCALL   L?0088
+                                           ; SOURCE LINE # 41
+0007 AF02              MOV     R7,AR2
+0009 120000      R     LCALL   _SW_I2C_SendByte_then_getAckBit
+                                           ; SOURCE LINE # 42
+000C AF04              MOV     R7,AR4
+000E 120000      R     LCALL   _SW_I2C_SendByte_then_getAckBit
+                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 45
+                                           ; SOURCE LINE # 46
+0011 120000      R     LCALL   L?0090
+                                           ; SOURCE LINE # 47
+0014 020000      R     LJMP    Delay2ms
+             ; FUNCTION _AT24C02_Write_Byte (END)
+
+             ; FUNCTION _AT24C02_Write_Multi_Bytes (BEGIN)
+                                           ; SOURCE LINE # 57
+0000 8D00        R     MOV     length,R5
+0002 8B00        R     MOV     Datas,R3
+0004 8A00        R     MOV     Datas+01H,R2
+0006 8900        R     MOV     Datas+02H,R1
+;---- Variable 'ByteAddress' assigned to Register 'R4' ----
+                                           ; SOURCE LINE # 58
+                                           ; SOURCE LINE # 60
+                                           ; SOURCE LINE # 61
+0008 120000      R     LCALL   L?0087
+                                           ; SOURCE LINE # 62
+000B AF04              MOV     R7,AR4
+000D 120000      R     LCALL   _SW_I2C_SendByte_then_getAckBit
+                                           ; SOURCE LINE # 63
+;---- Variable 'i' assigned to Register 'R4' ----
+0010 E4                CLR     A
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 11  
+
+0011 FC                MOV     R4,A
+0012         ?C0061:
+0012 EC                MOV     A,R4
+0013 C3                CLR     C
+0014 9500        R     SUBB    A,length
+0016 5015              JNC     ?C0062
+                                           ; SOURCE LINE # 64
+                                           ; SOURCE LINE # 65
+0018 AB00        R     MOV     R3,Datas
+001A AA00        R     MOV     R2,Datas+01H
+001C A900        R     MOV     R1,Datas+02H
+001E 8C82              MOV     DPL,R4
+0020 758300            MOV     DPH,#00H
+0023 120000      E     LCALL   ?C?CLDOPTR
+0026 FF                MOV     R7,A
+0027 120000      R     LCALL   _SW_I2C_SendByte_then_getAckBit
+                                           ; SOURCE LINE # 66
+002A 0C                INC     R4
+002B 80E5              SJMP    ?C0061
+002D         ?C0062:
+                                           ; SOURCE LINE # 67
+                                           ; SOURCE LINE # 69
+                                           ; SOURCE LINE # 70
+002D 120000      R     LCALL   L?0090
+                                           ; SOURCE LINE # 71
+0030 020000      R     LJMP    Delay2ms
+             ; FUNCTION _AT24C02_Write_Multi_Bytes (END)
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 8
+                                           ; SOURCE LINE # 9
+                                           ; SOURCE LINE # 10
+0000 E4                CLR     A
+0001 F500        R     MOV     str_ptr,A
+                                           ; SOURCE LINE # 12
+0003 F500        R     MOV     i,A
+0005 F500        R     MOV     i+01H,A
+                                           ; SOURCE LINE # 13
+0007 F500        R     MOV     key,A
+                                           ; SOURCE LINE # 14
+0009 7F32              MOV     R7,#032H
+000B FE                MOV     R6,A
+000C 120000      R     LCALL   _DelayXms_AT44983
+                                           ; SOURCE LINE # 15
+000F 120000      R     LCALL   init_all_gpio_to_std8051_status
+                                           ; SOURCE LINE # 16
+0012 120000      E     LCALL   LCD_Init
+                                           ; SOURCE LINE # 18
+0015 7F32              MOV     R7,#032H
+0017 7E00              MOV     R6,#00H
+0019 120000      R     LCALL   _DelayXms_AT44983
+                                           ; SOURCE LINE # 19
+001C 43B110            ORL     P3M1,#010H
+                                           ; SOURCE LINE # 20
+001F 43B120            ORL     P3M1,#020H
+                                           ; SOURCE LINE # 22
+0022 43B210            ORL     P3M0,#010H
+                                           ; SOURCE LINE # 23
+0025 43B220            ORL     P3M0,#020H
+                                           ; SOURCE LINE # 25
+0028 7BFF              MOV     R3,#0FFH
+002A 7A00        R     MOV     R2,#HIGH ?SC_0
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 12  
+
+002C 7900        R     MOV     R1,#LOW ?SC_0
+002E 7D01              MOV     R5,#01H
+0030 7F01              MOV     R7,#01H
+0032 120000      E     LCALL   _LCD_ShowString
+0035         ?C0065:
+                                           ; SOURCE LINE # 27
+                                           ; SOURCE LINE # 28
+                                           ; SOURCE LINE # 29
+0035 120000      R     LCALL   Get_onboard_key_num
+0038 8F00        R     MOV     key,R7
+                                           ; SOURCE LINE # 30
+003A EF                MOV     A,R7
+003B 6401              XRL     A,#01H
+003D 700E              JNZ     ?C0067
+                                           ; SOURCE LINE # 31
+                                           ; SOURCE LINE # 34
+003F 7BFF              MOV     R3,#0FFH
+0041 7A00        R     MOV     R2,#HIGH ?SC_14
+0043 7900        R     MOV     R1,#LOW ?SC_14
+0045 7D0A              MOV     R5,#0AH
+0047 FF                MOV     R7,A
+0048 120000      R     LCALL   _AT24C02_Write_Multi_Bytes
+                                           ; SOURCE LINE # 35
+004B 80E8              SJMP    ?C0065
+004D         ?C0067:
+                                           ; SOURCE LINE # 36
+004D E500        R     MOV     A,key
+004F 6402              XRL     A,#02H
+0051 700B              JNZ     ?C0069
+                                           ; SOURCE LINE # 37
+                                           ; SOURCE LINE # 38
+0053 1500        R     DEC     Data
+                                           ; SOURCE LINE # 39
+0055 AD00        R     MOV     R5,Data
+0057 7F01              MOV     R7,#01H
+0059 120000      R     LCALL   _AT24C02_Write_Byte
+                                           ; SOURCE LINE # 41
+005C 80D7              SJMP    ?C0065
+005E         ?C0069:
+                                           ; SOURCE LINE # 42
+005E E500        R     MOV     A,key
+0060 6403              XRL     A,#03H
+0062 70D1              JNZ     ?C0065
+                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 44
+0064 F500        R     MOV     str_ptr,A
+0066         ?C0072:
+0066 C3                CLR     C
+0067 E500        R     MOV     A,str_ptr
+0069 940A              SUBB    A,#0AH
+006B 7480              MOV     A,#080H
+006D 9480              SUBB    A,#080H
+006F 50C4              JNC     ?C0065
+                                           ; SOURCE LINE # 45
+                                           ; SOURCE LINE # 46
+0071 AF00        R     MOV     R7,str_ptr
+0073 120000      R     LCALL   _AT24C02_Read_byte
+0076 AB07              MOV     R3,AR7
+0078 E500        R     MOV     A,str_ptr
+007A 04                INC     A
+007B FD                MOV     R5,A
+007C 7F02              MOV     R7,#02H
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 13  
+
+007E 120000      E     LCALL   _LCD_ShowChar
+                                           ; SOURCE LINE # 47
+0081 0500        R     INC     str_ptr
+0083 80E1              SJMP    ?C0072
+             ; FUNCTION main (END)
+
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 14  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+uint16_t . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
+CCF2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00DAH  1
+P0M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0093H  1
+P1M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0092H  1
+CCF3 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00DBH  1
+P2M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0096H  1
+P1M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0091H  1
+P0 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0080H  1
+P3M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B2H  1
+P2M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0095H  1
+P1 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0090H  1
+P4M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B4H  1
+P3M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B1H  1
+P2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A0H  1
+SW_I2C_SDA . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+P5M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
+P4M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B3H  1
+P3 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B0H  1
+WKTCH. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ABH  1
+AC . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D6H  1
+P6M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CCH  1
+P5M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C9H  1
+P4 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C0H  1
+P7M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E2H  1
+P6M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
+P5 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
+Delay2ms . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0006H  -----
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+  j. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
+P6 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E8H  1
+P7M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E1H  1
+EA . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AFH  1
+_SW_I2C_SendSlaveAddress_and_RW_then_g  PUBLIC   CODE   PROC     0009H  -----
+  SlaveAddress . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0001H  1
+  RW . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0005H  1
+  AckBit . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0003H  1
+int32_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  LONG     -----  4
+P7 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F8H  1
+WKTCL. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AAH  1
+_AT24C02_Write_Byte. . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  ByteAddress. . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0002H  1
+  Dat. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0004H  1
+SPCTL. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CEH  1
+SW_I2C_ReceiveByte . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
+  Dat. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0005H  1
+int16_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  INT      -----  2
+CF . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00DFH  1
+CH . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F9H  1
+P_SW1. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A2H  1
+SW_I2C_SCL . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+P_SW2. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BAH  1
+DPH1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E5H  1
+EADC . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
+IE . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A8H  1
+CL . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E9H  1
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 15  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+IAP_CMD. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C5H  1
+CCAP0H . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FAH  1
+Delay6us . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0010H  -----
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+size_t . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
+CCAP1H . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FBH  1
+DPL1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E4H  1
+CCAP2H . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FCH  1
+ADC_RES. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BDH  1
+IP2H . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B6H  1
+IP3H . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EEH  1
+CCAP0L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EAH  1
+CR . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00DEH  1
+TA . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AEH  1
+CCAP1L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EBH  1
+CCAPM0 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DAH  1
+CCAP2L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ECH  1
+CCAPM1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DBH  1
+INTCLKO. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008FH  1
+_AT24C02_Read_byte . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  ByteAddress. . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0004H  1
+  Dat. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
+CCAPM2 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DCH  1
+ES . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
+PADC . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BDH  1
+IP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B8H  1
+ADCCFG . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DEH  1
+RI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0098H  1
+CY . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D7H  1
+TI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
+IAP_ADDRH. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C3H  1
+PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
+SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
+CMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D9H  1
+CCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D8H  1
+IAP_ADDRL. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C4H  1
+OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
+PPCA . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BFH  1
+LIRTRIM. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009EH  1
+main . . . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  str_ptr. . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
+  i. . . . . . . . . . . . . . . . . .  AUTO     DATA   U_INT    0001H  2
+  key. . . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0003H  1
+CMPCR1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E6H  1
+CMPCR2 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E7H  1
+ELVD . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AEH  1
+init_all_gpio_to_std8051_status. . . .  PUBLIC   CODE   PROC     0000H  -----
+_DelayXms_AT44983. . . . . . . . . . .  PUBLIC   CODE   PROC     0004H  -----
+  xms. . . . . . . . . . . . . . . . .  * REG *  DATA   U_INT    0006H  2
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0005H  1
+  j. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0004H  1
+P00. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0080H  1
+ADC_CONTR. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BCH  1
+SBUF . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0099H  1
+P10. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0090H  1
+PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
+P01. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0081H  1
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 16  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P20. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A0H  1
+P11. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
+P02. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0082H  1
+IAP_TPS. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F5H  1
+P30. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
+P21. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A1H  1
+P12. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0092H  1
+P03. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0083H  1
+_SW_I2C_SendByte_then_getAckBit. . . .  PUBLIC   CODE   PROC     0000H  -----
+  Dat. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0001H  1
+  AckBit . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0005H  1
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0003H  1
+P40. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C0H  1
+P31. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
+P22. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A2H  1
+SCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
+P13. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0093H  1
+P04. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0084H  1
+P50. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
+P41. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C1H  1
+P32. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
+P23. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A3H  1
+P14. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0094H  1
+TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
+TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
+P05. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0085H  1
+P60. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00E8H  1
+P51. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C9H  1
+P42. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C2H  1
+P33. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
+P24. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A4H  1
+P15. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0095H  1
+P06. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0086H  1
+P70. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00F8H  1
+P61. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00E9H  1
+P52. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CAH  1
+P43. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C3H  1
+PLVD . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BEH  1
+P34. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+P25. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A5H  1
+P16. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0096H  1
+P07. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0087H  1
+P71. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00F9H  1
+P62. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EAH  1
+P53. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
+P44. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C4H  1
+P35. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+P26. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A6H  1
+P17. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0097H  1
+P72. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FAH  1
+P63. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EBH  1
+P54. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CCH  1
+P45. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C5H  1
+P36. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+P27. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A7H  1
+P73. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FBH  1
+P64. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ECH  1
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 17  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P55. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CDH  1
+P46. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C6H  1
+P37. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+P74. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FCH  1
+P65. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EDH  1
+P56. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CEH  1
+P47. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C7H  1
+P75. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FDH  1
+P66. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EEH  1
+P57. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CFH  1
+P76. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FEH  1
+P67. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EFH  1
+P77. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FFH  1
+BUS_SPEED. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A1H  1
+IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
+Delay12us. . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
+IE2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AFH  1
+B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
+AUXR . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008EH  1
+IAP_CONTR. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C7H  1
+Delay18us. . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0007H  -----
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+  j. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
+PWMCFG . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F6H  1
+ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
+Get_onboard_key_num. . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  key_num. . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0003H  1
+ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
+LCD_Init . . . . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
+TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
+RSTCFG . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FFH  1
+IP2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B5H  1
+TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
+IP3. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DFH  1
+RB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
+TH0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008CH  1
+EX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A8H  1
+TH1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008DH  1
+IT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0088H  1
+at24c02_address. . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0000H  1
+T2H. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D6H  1
+EX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AAH  1
+TB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009BH  1
+IT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008AH  1
+uint8_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+T3H. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D4H  1
+P. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D0H  1
+T4H. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D2H  1
+SM0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009FH  1
+TL0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008AH  1
+SM1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009EH  1
+TL1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008BH  1
+T2L. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D7H  1
+SM2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009DH  1
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 18  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+_LCD_ShowString. . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+T3L. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D5H  1
+T4L. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D3H  1
+PT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B9H  1
+RS0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D3H  1
+PT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BBH  1
+RS1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D4H  1
+IAP_DATA . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C2H  1
+TR0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008CH  1
+TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
+_LCD_ShowChar. . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+WDT_CONTR. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C1H  1
+PX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
+int8_t . . . . . . . . . . . . . . . .  TYPEDEF  -----  CHAR     -----  1
+PX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
+IRTRIM . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009FH  1
+PCA_PWM0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F2H  1
+PCA_PWM1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F3H  1
+SW_I2C_StartBit. . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+PCA_PWM2 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F4H  1
+DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
+T4T3M. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D1H  1
+ADC_RESL . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BEH  1
+DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
+SPSTAT . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
+IPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B7H  1
+PWMSET . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F1H  1
+S2BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009BH  1
+S3BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ADH  1
+REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
+S4BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0085H  1
+S2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009AH  1
+DPS. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E3H  1
+S3CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ACH  1
+S4CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0084H  1
+_AT24C02_Write_Multi_Bytes . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  ByteAddress. . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0004H  1
+  length . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
+  Datas. . . . . . . . . . . . . . . .  AUTO     DATA   PTR      0001H  3
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0004H  1
+AUXINTIF . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EFH  1
+SADEN. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B9H  1
+SADDR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A9H  1
+IAP_TRIG . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C6H  1
+SW_I2C_StopBit . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+Delay160us . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+  j. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
+F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
+IRCBAND. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009DH  1
+PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
+Data . . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0001H  1
+uint32_t . . . . . . . . . . . . . . .  TYPEDEF  -----  U_LONG   -----  4
+CCF0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D8H  1
+CCF1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D9H  1
+SPDAT. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CFH  1
+P0M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0094H  1
+
+C51 COMPILER V9.60.0.0   MAIN                                                              12/11/2021 16:08:26 PAGE 19  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    654    ----
+   CONSTANT SIZE    =     25    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,7 +1,7 @@
 #include "main.h"
 #include "LCD1602.h"
 #include "IndivBtn.h"
-#include "SW_I2C.h"
+#include "AT24C02.h"
 
 uint8_t Data = 0;
 

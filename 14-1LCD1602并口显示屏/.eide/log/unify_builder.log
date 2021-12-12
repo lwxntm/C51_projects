@@ -229,3 +229,81 @@
 [2021-12-12 09:33:58]	[done]
 	build successfully !
 
+[2021-12-12 09:45:55]	[done]
+	build successfully !
+
+[2021-12-12 09:51:51]	[done]
+	build successfully !
+
+[2021-12-12 09:53:18]	[done]
+	build successfully !
+
+[2021-12-12 10:16:44]	[done]
+	build successfully !
+
+[2021-12-12 10:18:53]	link failed !, exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01625] in <9766f0feb9254ce382978a5522f2fada>:0 
+
+[2021-12-12 10:19:06]	[done]
+	build successfully !
+
+[2021-12-12 10:19:20]	[done]
+	build successfully !
+
+[2021-12-12 10:26:54]	[done]
+	build successfully !
+
+[2021-12-12 10:31:02]	[done]
+	build successfully !
+
+[2021-12-12 10:34:43]	[done]
+	build successfully !
+
+[2021-12-12 10:35:36]	[done]
+	build successfully !
+
+[2021-12-12 10:36:20]	[done]
+	build successfully !
+
+[2021-12-12 10:38:22]	compilation failed at : "e:\CanDelete\VSCode_C51_Projs\14-1LCD1602并口显示屏\User\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01484] in <9766f0feb9254ce382978a5522f2fada>:0 
+
+[2021-12-12 10:38:32]	[done]
+	build successfully !
+
+[2021-12-12 10:39:03]	[done]
+	build successfully !
+
+[2021-12-12 10:39:24]	[done]
+	build successfully !
+
+[2021-12-12 10:44:11]	[done]
+	build successfully !
+
+[2021-12-12 10:44:31]	[done]
+	build successfully !
+
+[2021-12-12 10:44:44]	[done]
+	build successfully !
+
+[2021-12-12 10:44:50]	[done]
+	build successfully !
+
+[2021-12-12 10:45:00]	[done]
+	build successfully !
+
+[2021-12-12 10:45:47]	[done]
+	build successfully !
+
+[2021-12-12 10:46:34]	[done]
+	build successfully !
+
+[2021-12-12 11:14:49]	[done]
+	build successfully !
+
+[2021-12-12 11:15:01]	[done]
+	build successfully !
+
+[2021-12-12 11:15:12]	[done]
+	build successfully !
+

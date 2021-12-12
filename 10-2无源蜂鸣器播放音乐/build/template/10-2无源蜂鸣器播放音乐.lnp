@@ -1,3 +1,0 @@
-
-.\build\template\User\LCD1602.o,.\build\template\User\main.o TO .\build\template\10-2无源蜂鸣器播放音乐
-PRINT(.\build\template\10-2无源蜂鸣器播放音乐.map) REMOVEUNUSED

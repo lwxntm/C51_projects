@@ -1,3 +1,0 @@
-
-.\build\template\LCD1602.o,.\build\template\main.o TO .\build\template\6-2矩阵键盘做一个计算器
-PRINT(.\build\template\6-2矩阵键盘做一个计算器.map) REMOVEUNUSED

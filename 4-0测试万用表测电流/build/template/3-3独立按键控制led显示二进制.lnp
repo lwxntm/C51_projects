@@ -1,3 +1,0 @@
-
-.\build\template\template.o TO .\build\template\3-3独立按键控制led显示二进制
-PRINT(.\build\template\3-3独立按键控制led显示二进制.map) REMOVEUNUSED

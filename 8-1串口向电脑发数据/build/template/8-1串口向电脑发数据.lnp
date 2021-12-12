@@ -1,3 +1,0 @@
-
-.\build\template\User\LCD1602.o,.\build\template\User\main.o TO .\build\template\8-1串口向电脑发数据
-PRINT(.\build\template\8-1串口向电脑发数据.map) REMOVEUNUSED

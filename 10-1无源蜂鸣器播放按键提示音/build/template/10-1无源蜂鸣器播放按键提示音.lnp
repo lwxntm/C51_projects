@@ -1,3 +1,0 @@
-
-.\build\template\User\LCD1602.o,.\build\template\User\main.o TO .\build\template\10-1无源蜂鸣器播放按键提示音
-PRINT(.\build\template\10-1无源蜂鸣器播放按键提示音.map) REMOVEUNUSED
